@@ -144,7 +144,8 @@ AutoGluon 是亚马逊开发的 AutoML 框架，核心功能：
 
 #### 模型一
 
-```predictor_one = TabularPredictor(
+```
+predictor_one = TabularPredictor(
     label='label',
     problem_type='binary',
     eval_metric='roc_auc',
@@ -224,7 +225,8 @@ predictor_three = TabularPredictor(label="label", problem_type="binary", eval_me
         "XT": {},       # ExtraTrees
         # "NN_TORCH": {}   # 默认包含神经网络，如果不要就直接去掉
     }
-)```
+)
+```
 
 ### 模型评估
 
@@ -240,7 +242,8 @@ lb_3 = predictor_three.leaderboard(silent=True)
 
 从model加载三个训练好的模型后，调用模型完成预测，然后加权得到最终预测，将文件保存至/result下
 
-```#模型预测一
+```
+#模型预测一
 
 y_pred_proba_1 = predictor_one.predict_proba(df_testA[cols_input+['label']])[1]
 output_df_1 = pd.DataFrame({'id': df_testA['id'], 'label': y_pred_proba_1})
