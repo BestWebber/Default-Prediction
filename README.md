@@ -142,9 +142,8 @@ AutoGluon 是亚马逊开发的 AutoML 框架，核心功能：
 
 由于Autogluon框架可以实现自动模型选择与融合、自动调参与验证，因此模型构建和模型训练可以一步完成。三个模型的模型构建和模型训练如下：
 
-#### 模型一
-
 ```
+#### 模型一
 predictor_one = TabularPredictor(
     label='label',
     problem_type='binary',
