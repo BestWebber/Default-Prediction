@@ -240,7 +240,7 @@ lb_3 = predictor_three.leaderboard(silent=True)
 
 从model加载三个训练好的模型后，调用模型完成预测，然后加权得到最终预测，将文件保存至/result下
 
-'''#模型预测一
+‘’‘#模型预测一
 
 y_pred_proba_1 = predictor_one.predict_proba(df_testA[cols_input+['label']])[1]
 output_df_1 = pd.DataFrame({'id': df_testA['id'], 'label': y_pred_proba_1})
@@ -257,7 +257,7 @@ output_df = output_df_1[['id']].copy()
 output_df['label'] = output_df_1['label'] *0.75 + output_df_2['label'] * 0.2 + output_df_3['label'] *0.05
 
 output_df.to_csv('/数智先锋CCB_刘德华/result/result.csv', index=False, header=True)
-'''
+’‘’
 
 ---
 
