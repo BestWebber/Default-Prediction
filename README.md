@@ -144,7 +144,7 @@ AutoGluon 是亚马逊开发的 AutoML 框架，核心功能：
 
 #### 模型一
 
-'''predictor_one = TabularPredictor(
+```predictor_one = TabularPredictor(
     label='label',
     problem_type='binary',
     eval_metric='roc_auc',
@@ -188,11 +188,11 @@ AutoGluon 是亚马逊开发的 AutoML 框架，核心功能：
         'min_samples_leaf': 2,
     }
 }
-)'''
+)```
 
 #### 模型二
 
-'''predictor_two = TabularPredictor(
+```predictor_two = TabularPredictor(
     label='label',
     problem_type='binary',
     eval_metric='roc_auc',
@@ -209,11 +209,11 @@ AutoGluon 是亚马逊开发的 AutoML 框架，核心功能：
     'RF': {},
     'XT': {}
     }
-)'''
+)```
 
 #### 模型三
 
-'''predictor_three = TabularPredictor(label="label", problem_type="binary", eval_metric="roc_auc").fit(
+```predictor_three = TabularPredictor(label="label", problem_type="binary", eval_metric="roc_auc").fit(
     train_data=df_train1[cols_input+['label']],
     presets="best_quality",  # 可以选 fast_training / best_quality
     hyperparameters={
@@ -224,23 +224,23 @@ AutoGluon 是亚马逊开发的 AutoML 框架，核心功能：
         "XT": {},       # ExtraTrees
         # "NN_TORCH": {}   # 默认包含神经网络，如果不要就直接去掉
     }
-)'''
+)```
 
 ### 模型评估
 
 直接调用AutoGluon框架的leaderboard评估模型，得到最优的模型
 
-'''
+```
 lb_1 = predictor_one.leaderboard(silent=True)
 lb_2 = predictor_two.leaderboard(silent=True)
 lb_3 = predictor_three.leaderboard(silent=True)
-'''
+```
 
 ### 模型预测
 
 从model加载三个训练好的模型后，调用模型完成预测，然后加权得到最终预测，将文件保存至/result下
 
-‘’‘#模型预测一
+```#模型预测一
 
 y_pred_proba_1 = predictor_one.predict_proba(df_testA[cols_input+['label']])[1]
 output_df_1 = pd.DataFrame({'id': df_testA['id'], 'label': y_pred_proba_1})
@@ -257,7 +257,7 @@ output_df = output_df_1[['id']].copy()
 output_df['label'] = output_df_1['label'] *0.75 + output_df_2['label'] * 0.2 + output_df_3['label'] *0.05
 
 output_df.to_csv('/数智先锋CCB_刘德华/result/result.csv', index=False, header=True)
-’‘’
+```
 
 ---
 
