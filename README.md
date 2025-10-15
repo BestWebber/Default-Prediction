@@ -188,11 +188,11 @@ AutoGluon 是亚马逊开发的 AutoML 框架，核心功能：
         'min_samples_leaf': 2,
     }
 }
-)```
+)
 
 #### 模型二
 
-```predictor_two = TabularPredictor(
+predictor_two = TabularPredictor(
     label='label',
     problem_type='binary',
     eval_metric='roc_auc',
@@ -209,11 +209,11 @@ AutoGluon 是亚马逊开发的 AutoML 框架，核心功能：
     'RF': {},
     'XT': {}
     }
-)```
+)
 
 #### 模型三
 
-```predictor_three = TabularPredictor(label="label", problem_type="binary", eval_metric="roc_auc").fit(
+predictor_three = TabularPredictor(label="label", problem_type="binary", eval_metric="roc_auc").fit(
     train_data=df_train1[cols_input+['label']],
     presets="best_quality",  # 可以选 fast_training / best_quality
     hyperparameters={
